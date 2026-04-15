@@ -3,18 +3,13 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- 🔥 THIS MUST BE EXACT -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
-/* your CSS */
-</style>
-
-</head>
 
 /* ===== GLOBAL ===== */
 body {
@@ -32,8 +27,7 @@ body {
 
     display: flex;
     flex-direction: column;
-
-    justify-content: flex-start;   /* 🔥 FIX */
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -54,8 +48,6 @@ body {
 /* ===== IMAGE ===== */
 .circle img {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -86,12 +78,8 @@ body {
     margin-top: 10px;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE FIX ===== */
 @media (max-width: 600px) {
-
-    body {
-        overflow-x: hidden;
-    }
 
     .hero {
         height: 100vh;
@@ -100,31 +88,23 @@ body {
     }
 
     .circle {
-        width: 95vw;     /* 🔥 almost full width */
+        width: 95vw;
         height: 95vw;
         margin: 0 auto;
-
-        border-width: 6px;  /* thicker border */
-    }
-
-    .subtitle {
-        font-size: 16px;
-        margin-bottom: 10px;
+        border-width: 6px;
     }
 
     .title {
         font-size: 32px;
-        margin-top: 10px;
+    }
+
+    .subtitle {
+        font-size: 16px;
     }
 
     .line {
         width: 120px;
         height: 3px;
-    }
-
-    .scroll {
-        font-size: 14px;
-        margin-top: 10px;
     }
 }
 
@@ -137,7 +117,6 @@ body {
 
     <div class="subtitle">THE WEDDING CELEBRATION</div>
 
-    <!-- 🔥 IMAGE -->
     <div class="circle">
         <img src="photo.jpg" alt="Couple Photo">
     </div>
