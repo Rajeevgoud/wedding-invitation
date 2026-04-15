@@ -20,11 +20,7 @@ body {
 /* ===== MAIN SECTION ===== */
 .hero {
     min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 20px;
 }
 
 /* ===== CIRCLE ===== */
@@ -79,27 +75,30 @@ body {
 @media (max-width: 600px) {
 
     .circle {
-        width: 280px;
-        height: 280px;
+        width: 75vw;   /* 🔥 responsive width */
+        height: 75vw;  /* same = perfect circle */
+        max-width: 350px;
+        max-height: 350px;
     }
 
     .title {
-        font-size: 32px;
+        font-size: 36px;   /* bigger name */
     }
 
     .subtitle {
-        font-size: 16px;
+        font-size: 18px;
         letter-spacing: 3px;
     }
 
     .line {
-        width: 80px;
+        width: 100px;
         height: 3px;
     }
 
     .scroll {
-        font-size: 16px;
+        font-size: 18px;
     }
+
 }
 
 </style>
