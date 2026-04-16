@@ -34,10 +34,13 @@ body {
     text-align: center;
 }
 
-/* 🛕 GANESHA */
+/* 🛕 GANESHA (FIXED SIZE) */
 .ganesha {
     width: 140px;
-    margin-bottom: 20px;
+    max-width: 80vw;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 /* TITLE */
@@ -87,7 +90,7 @@ body {
     transform: scale(1.1);
 }
 
-/* shine effect */
+/* shine */
 .seal::after {
     content: "";
     position: absolute;
@@ -160,6 +163,7 @@ body {
 <div id="intro">
     <div class="invite-box">
 
+        <!-- ✅ FIXED IMAGE -->
         <img src="./ganesg.jpg" class="ganesha">
 
         <h2>Wedding Invitation</h2>
