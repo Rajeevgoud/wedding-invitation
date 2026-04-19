@@ -6,13 +6,16 @@
 
 <title>Wedding Invitation</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
 <style>
 
-/* ===== BODY ===== */
+/* ===== GLOBAL ===== */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+    text-align: center;
+    background: #d8a1b0;
 }
 
 /* ===== INTRO SCREEN ===== */
@@ -21,80 +24,136 @@ body {
     width: 100%;
     height: 100vh;
     background: #ffffff;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     z-index: 999;
 }
 
+/* CENTER EVERYTHING PERFECTLY */
 .invite-box {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* 🔥 spacing fix */
 }
 
-/* GANESH IMAGE */
-.ganesh {
+/* 🛕 GANESHA */
+.ganesha {
     width: 120px;
-    margin-bottom: 20px;
+    height: auto;
 }
 
 /* TITLE */
 .invite-box h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 28px;
     color: #7a1c2f;
+    margin: 0;
 }
 
-/* 🔴 WAX BUTTON */
+/* 🔴 PERFECT CENTER CIRCLE BUTTON */
 .seal {
-    margin-top: 30px;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
 
-    background: radial-gradient(circle, #ff3b3b, #8b0000);
-
-    clip-path: polygon(
-        50% 0%, 60% 5%, 70% 0%, 80% 8%, 90% 20%,
-        100% 30%, 95% 50%, 100% 70%, 90% 80%,
-        80% 92%, 65% 100%, 50% 95%, 35% 100%,
-        20% 92%, 10% 80%, 0% 70%, 5% 50%,
-        0% 30%, 10% 20%, 20% 8%, 30% 0%, 40% 5%
-    );
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #8b0000);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     color: white;
-    font-size: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
     text-align: center;
 
     cursor: pointer;
 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,0.5),
+        0 10px 25px rgba(0,0,0,0.4);
+
+    transition: 0.3s;
 }
 
-/* ===== MAIN CONTENT ===== */
-#mainContent {
-    display: none;
+/* hover */
+.seal:hover {
+    transform: scale(1.1);
 }
 
-/* EACH PAGE */
-.section {
-    height: 100vh;
-    width: 100%;
+/* shine */
+.seal::after {
+    content: "";
+    position: absolute;
+    width: 35%;
+    height: 35%;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    top: 20%;
+    left: 20%;
 }
 
-/* IMAGE FULL SCREEN */
-.section img {
+/* ===== MAIN PAGE ===== */
+.hero {
+    min-height: 100vh;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* IMAGE CIRCLE */
+.circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+    border: 4px solid #ff2e88;
+    box-shadow: 0 0 30px #ff2e88;
+}
+
+.circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* TEXT */
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+}
+
+.line {
+    width: 60px;
+    height: 2px;
+    background: #ff2e88;
+    margin: 10px auto;
+}
+
 /* MOBILE FIX */
-@media (max-width:600px) {
+@media (max-width: 600px) {
     .seal {
         width: 110px;
         height: 110px;
+        font-size: 16px;
+    }
+
+    .circle {
+        width: 90vw;
+        height: 90vw;
     }
 }
 
@@ -103,14 +162,15 @@ body {
 
 <body>
 
-<!-- 🔥 INTRO SCREEN -->
+<!-- 🔥 INTRO -->
 <div id="intro">
     <div class="invite-box">
 
-        <img src="ganesh.jpg" class="ganesh">
+        <img src="./ganesj.jpg" class="ganesha">
 
         <h2>Wedding Invitation</h2>
 
+        <!-- ✅ PERFECT CENTER BUTTON -->
         <div class="seal" onclick="openInvite()">
             Tap to<br>Open
         </div>
@@ -119,26 +179,24 @@ body {
 </div>
 
 <!-- 🔥 MAIN CONTENT -->
-<div id="mainContent">
+<div id="mainContent" style="display:none;">
 
-    <!-- ✅ FIRST PAGE (YOUR IMAGE) -->
-    <div class="section">
-        <img src="page1.jpg">
-    </div>
+    <div class="hero">
 
-    <!-- ✅ SECOND PAGE -->
-    <div class="section">
-        <img src="page2.jpg">
-    </div>
+        <div class="subtitle">THE WEDDING CELEBRATION</div>
 
-    <!-- ✅ THIRD PAGE -->
-    <div class="section">
-        <img src="page3.jpg">
+        <div class="circle">
+            <img src="photo.jpg">
+        </div>
+
+        <div class="title">Pradeep & Divya</div>
+
+        <div class="line"></div>
+
     </div>
 
 </div>
 
-<!-- SCRIPT -->
 <script>
 function openInvite() {
     document.getElementById("intro").style.display = "none";
