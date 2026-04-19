@@ -6,16 +6,13 @@
 
 <title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
-
 <style>
 
-/* ===== GLOBAL ===== */
+/* ===== BODY ===== */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background: #d8a1b0;
+    scroll-behavior: smooth;
 }
 
 /* ===== INTRO SCREEN ===== */
@@ -30,133 +27,74 @@ body {
     z-index: 999;
 }
 
-/* CENTER CONTENT */
 .invite-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
-/* 🛕 GANESHA */
-.ganesha {
-    width: 140px;
-    max-width: 80vw;
-    height: auto;
+/* GANESH IMAGE */
+.ganesh {
+    width: 120px;
     margin-bottom: 20px;
 }
 
 /* TITLE */
 .invite-box h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
+    font-size: 28px;
     color: #7a1c2f;
-    margin-bottom: 30px;
 }
 
-/* 🔴 PERFECT CIRCLE WAX BUTTON */
+/* 🔴 WAX BUTTON */
 .seal {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
+    margin-top: 30px;
+    width: 120px;
+    height: 120px;
 
-    background: radial-gradient(circle at 30% 30%, #ff4d4d, #8b0000);
+    background: radial-gradient(circle, #ff3b3b, #8b0000);
+
+    clip-path: polygon(
+        50% 0%, 60% 5%, 70% 0%, 80% 8%, 90% 20%,
+        100% 30%, 95% 50%, 100% 70%, 90% 80%,
+        80% 92%, 65% 100%, 50% 95%, 35% 100%,
+        20% 92%, 10% 80%, 0% 70%, 5% 50%,
+        0% 30%, 10% 20%, 20% 8%, 30% 0%, 40% 5%
+    );
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     color: white;
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
 
     cursor: pointer;
 
-    box-shadow:
-        inset 0 0 15px rgba(0,0,0,0.5),
-        0 10px 25px rgba(0,0,0,0.4);
-
-    transition: 0.3s;
-    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* hover */
-.seal:hover {
-    transform: scale(1.1);
+/* ===== MAIN CONTENT ===== */
+#mainContent {
+    display: none;
 }
 
-/* shine */
-.seal::after {
-    content: "";
-    position: absolute;
-    width: 35%;
-    height: 35%;
-    background: rgba(255,255,255,0.25);
-    border-radius: 50%;
-    top: 20%;
-    left: 20%;
+/* EACH PAGE */
+.section {
+    height: 100vh;
+    width: 100%;
 }
 
-/* ===== MAIN PAGE ===== */
-.hero {
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* IMAGE CIRCLE */
-.circle {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 20px auto;
-    border: 4px solid #ff2e88;
-    box-shadow: 0 0 30px #ff2e88;
-}
-
-.circle img {
+/* IMAGE FULL SCREEN */
+.section img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* TEXT */
-.subtitle {
-    font-size: 14px;
-    letter-spacing: 2px;
-}
-
-.title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-}
-
-.line {
-    width: 60px;
-    height: 2px;
-    background: #ff2e88;
-    margin: 10px auto;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .circle {
-        width: 90vw;
-        height: 90vw;
-    }
-
-    .title {
-        font-size: 32px;
-    }
-
+/* MOBILE FIX */
+@media (max-width:600px) {
     .seal {
         width: 110px;
         height: 110px;
-        font-size: 16px;
     }
 }
 
@@ -165,12 +103,11 @@ body {
 
 <body>
 
-<!-- 🔥 INTRO -->
+<!-- 🔥 INTRO SCREEN -->
 <div id="intro">
     <div class="invite-box">
 
-        <!-- 🛕 YOUR FILE -->
-        <img src="./ganesj.jpg" class="ganesha">
+        <img src="ganesh.jpg" class="ganesh">
 
         <h2>Wedding Invitation</h2>
 
@@ -182,20 +119,21 @@ body {
 </div>
 
 <!-- 🔥 MAIN CONTENT -->
-<div id="mainContent" style="display:none;">
+<div id="mainContent">
 
-    <div class="hero">
+    <!-- ✅ FIRST PAGE (YOUR IMAGE) -->
+    <div class="section">
+        <img src="page1.jpg">
+    </div>
 
-        <div class="subtitle">THE WEDDING CELEBRATION</div>
+    <!-- ✅ SECOND PAGE -->
+    <div class="section">
+        <img src="page2.jpg">
+    </div>
 
-        <div class="circle">
-            <img src="photo.jpg">
-        </div>
-
-        <div class="title">Pradeep & Divya</div>
-
-        <div class="line"></div>
-
+    <!-- ✅ THIRD PAGE -->
+    <div class="section">
+        <img src="page3.jpg">
     </div>
 
 </div>
