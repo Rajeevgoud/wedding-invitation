@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,12 +11,11 @@
 
 <style>
 
-/* ===== GLOBAL ===== */
+/* ===== BODY ===== */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background: #d8a1b0;
+    overflow: hidden; /* 🔥 prevents scroll before open */
 }
 
 /* ===== INTRO SCREEN ===== */
@@ -32,19 +32,17 @@ body {
     z-index: 999;
 }
 
-/* CENTER EVERYTHING PERFECTLY */
+/* CENTER CONTENT */
 .invite-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px; /* 🔥 spacing fix */
+    gap: 20px;
 }
 
-/* 🛕 GANESHA */
+/* GANESH IMAGE */
 .ganesha {
     width: 120px;
-    height: auto;
 }
 
 /* TITLE */
@@ -55,7 +53,7 @@ body {
     margin: 0;
 }
 
-/* 🔴 PERFECT CENTER CIRCLE BUTTON */
+/* 🔴 TAP BUTTON */
 .seal {
     width: 130px;
     height: 130px;
@@ -81,7 +79,6 @@ body {
     transition: 0.3s;
 }
 
-/* hover */
 .seal:hover {
     transform: scale(1.1);
 }
@@ -98,49 +95,28 @@ body {
     left: 20%;
 }
 
-/* ===== MAIN PAGE ===== */
-.hero {
-    min-height: 100vh;
-    padding: 20px;
+/* ===== MAIN CONTENT (SLIDE) ===== */
+#mainContent {
+    display: none;
+    height: 100vh;
+    overflow-y: scroll;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
-/* IMAGE CIRCLE */
-.circle {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 20px auto;
-    border: 4px solid #ff2e88;
-    box-shadow: 0 0 30px #ff2e88;
+/* EACH PAGE */
+.section {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
 }
 
-.circle img {
+/* FULL IMAGE */
+.section img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* TEXT */
-.subtitle {
-    font-size: 14px;
-    letter-spacing: 2px;
-}
-
-.title {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-}
-
-.line {
-    width: 60px;
-    height: 2px;
-    background: #ff2e88;
-    margin: 10px auto;
 }
 
 /* MOBILE FIX */
@@ -151,56 +127,66 @@ body {
         font-size: 16px;
     }
 
-    .circle {
-        width: 90vw;
-        height: 90vw;
+    .ganesha {
+        width: 100px;
     }
 }
 
 </style>
+
 </head>
 
 <body>
 
 <!-- 🔥 INTRO -->
+
 <div id="intro">
     <div class="invite-box">
 
-        <img src="./ganesj.jpg" class="ganesha">
+```
+    <img src="ganesj.jpg" class="ganesha">
 
-        <h2>Wedding Invitation</h2>
+    <h2>Wedding Invitation</h2>
 
-        <!-- ✅ PERFECT CENTER BUTTON -->
-        <div class="seal" onclick="openInvite()">
-            Tap to<br>Open
-        </div>
-
+    <div class="seal" onclick="openInvite()">
+        Tap to<br>Open
     </div>
+
+</div>
+```
+
 </div>
 
 <!-- 🔥 MAIN CONTENT -->
-<div id="mainContent" style="display:none;">
 
-    <div class="hero">
+<div id="mainContent">
 
-        <div class="subtitle">THE WEDDING CELEBRATION</div>
+```
+<!-- PAGE 1 -->
+<div class="section">
+    <img src="page1.jpg">
+</div>
 
-        <div class="circle">
-            <img src="photo.jpg">
-        </div>
+<!-- PAGE 2 -->
+<div class="section">
+    <img src="page2.jpg">
+</div>
 
-        <div class="title">Pradeep & Divya</div>
-
-        <div class="line"></div>
-
-    </div>
+<!-- PAGE 3 -->
+<div class="section">
+    <img src="page3.jpg">
+</div>
+```
 
 </div>
+
+<!-- SCRIPT -->
 
 <script>
 function openInvite() {
     document.getElementById("intro").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
+    document.body.style.overflow = "auto"; // enable scroll after open
 }
 </script>
 
